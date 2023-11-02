@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services</title>
+</head>
+<body>
+<h1 style="font-size:40px;">Services Offered</h1>
+<hr>
+{% for i in services %}
+<h4>{{ i }}</h4>
+{% endfor %}
+</body>
+
+{% endblock %}
+</html>
