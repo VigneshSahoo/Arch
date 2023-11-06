@@ -9,10 +9,11 @@
 <body>
 <h1 style="font-size:40px;">Services Offered</h1>
 <hr>
-{% for i in services %}
-<h4>{{ i }}</h4>
+<h3>
+{% for i in data %}
+{{ i.s_name }}: {{ i.s_price }} <br>
 {% endfor %}
+</h3>
 </body>
-
 {% endblock %}
 </html>

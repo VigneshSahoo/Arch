@@ -7,10 +7,19 @@
     <title>Home</title>
 </head>
 <body>
-Homepage
+<h1>Registration Form</h1>
 <br>
 <br>
-{{ intro }}
+<form name="register" method="POST" action="" >
+    {% csrf_token %}
+    <pre>
+        UID     : <input type="text" name="tu_id" value="" width="200"><br>
+        Name    : <input type="text" name="tu_name" value="" width="200"><br>
+        Email   : <input type="text" name="tu_email" value="" width="200"><br>
+        Contact : <input type="text" name="tu_contact" value="" width="200"><br>
+        <input type="submit" name="reg" value="Register" width="300" height="100">
+    </pre>
+</form>
 </body>
 {% endblock %}
 </html>
