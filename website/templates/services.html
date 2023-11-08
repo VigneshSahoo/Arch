@@ -1,19 +1,22 @@
-<!DOCTYPE html>
 {% extends 'navbar.html' %}
 {% block content %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Services</title>
-</head>
-<body>
-<h1 style="font-size:40px;">Services Offered</h1>
+<h1>Services Offered Registration</h1>
+
+<form method="POST" action="" >
+    {% csrf_token %}
+    <pre>
+Name:        <input type="text" name="so_name" value="" width="200"> <br><br>
+Description: <input type="text" name="so_description" value="" width="200"> <br><br>
+Price:       <input type="text" name="so_price" value="" width="200"> <br><br>
+<input type="submit" value="Submit">
+    </pre>
+</form>
 <hr>
-<h3>
+
+<h1>Services Offered</h1>
 {% for i in data %}
-{{ i.s_name }}: {{ i.s_price }} <br>
+Service Name : {{ i.s_name }} <br>
+Service Price: {{ i.s_price }} <br>
+Service Description: {{ i.s_description }} <br><br>
 {% endfor %}
-</h3>
-</body>
 {% endblock %}
-</html>

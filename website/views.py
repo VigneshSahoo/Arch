@@ -21,7 +21,18 @@ def about_us(request):
 def services_off(request):
     data = models.Services.objects.all()
     context = {'data': data}
-    return render(request, 'services.html', context)
+    if request.method == "POST":
+        name = request.POST.get('so_name')
+        desc = request.POST.get('so_description')
+        price = request.POST.get('so_price')
+        x = models.Services(s_name=name,
+                            s_description=desc,
+                            s_price=price)
+        if x is not None:
+            x.save()
+            return render(request, 'services.html', context)
+    else:
+        return render(request, 'services.html', context)
 
 
 def login_page(request):
