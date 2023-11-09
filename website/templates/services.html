@@ -15,6 +15,7 @@ Price:       <input type="text" name="so_price" value="" width="200"> <br><br>
 
 <h1>Services Offered</h1>
 {% for i in data %}
+Service ID: <a href="{% url 'service_detail' pk=i.pk %}" >{{ i.id }}</a> <br>
 Service Name : {{ i.s_name }} <br>
 Service Price: {{ i.s_price }} <br>
 Service Description: {{ i.s_description }} <br><br>

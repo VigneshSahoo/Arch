@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from . import models
+from django.forms import ModelForm
 
 
 def index_page(request):
@@ -15,7 +16,8 @@ def index_page(request):
 
 
 def about_us(request):
-    return render(request, 'about.html')
+    context = {}
+    return render(request, 'about.html', context)
 
 
 def services_off(request):
@@ -33,6 +35,35 @@ def services_off(request):
             return render(request, 'services.html', context)
     else:
         return render(request, 'services.html', context)
+
+
+def service_details(request, pk):
+    data = models.Services.objects.get(id=pk)
+    service = get_object_or_404(models.Services, pk=pk)
+    context = {'service': service,
+               'data': data}
+    return render(request, 'service_detail.html', context)
+
+
+def servicesform(request):
+    data = models.ServicesForm()
+    if request.method == 'POST':
+        data = models.ServicesForm(request.POST)
+        if data.is_valid():
+            data.save()
+    context = {'form': data}
+    return render(request, 'subscribe.html', context)
+
+
+def subscribe(request):
+    data = models.SubscriptionForm()
+    if request.method == 'POST':
+        data = models.SubscriptionForm(request.POST)
+        if data.is_valid():
+            data.save()
+            return redirect('/')
+    context = {'form': data}
+    return render(request, 'subscribe.html', context)
 
 
 def login_page(request):

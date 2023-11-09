@@ -1,0 +1,12 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <pre>
+    Name:   {{ form.sub_name }} <br>
+    E-mail: {{ form.sub_email }} <br>
+                    <input type="submit" value="Subscribe">
+    </pre>
+</form>
+{% endblock %}

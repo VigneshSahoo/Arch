@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscribe</title>
+</head>
+<body>
+<h1>Subscribe</h1><hr>
+<form method="POST" action="" >
+    {% csrf_token %}
+<!--    {{ form.as_p }}-->
+    <pre>
+Name:        {{ form.s_name }} <br><br>
+Description: {{ form.s_description }} <br><br>
+Price:       {{ form.s_price }} <br><br>
+                <input type="submit" value="Submit">
+    </pre>
+</form>
+{{ form.errors }}
+</body>
+{% endblock %}
+</html>
