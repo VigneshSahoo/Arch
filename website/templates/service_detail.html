@@ -7,7 +7,14 @@
     <title>Details</title>
 </head>
 <body>
-Service Details.
+Service Details. <br><br>
+<form action="/service/{{ data.id }}/" method="POST">
+    {% csrf_token %}
+    <input type="text" value="{{ data.s_name }}" name="prodname">
+    <input type="text" value="{{ data.s_description }}" name="desc">
+    <input type="text" value="{{ data.s_price }}" name="price">
+    <input type="submit" value="Update">
+</form>
 </body>
 </html>
 {% endblock %}

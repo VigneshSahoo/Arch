@@ -2,12 +2,12 @@
 {% block content %}
 <h1>Services Offered Registration</h1>
 
-<form method="POST" action="" >
+<form method="POST" action="">
     {% csrf_token %}
     <pre>
-Name:        <input type="text" name="so_name" value="" width="200"> <br><br>
-Description: <input type="text" name="so_description" value="" width="200"> <br><br>
-Price:       <input type="text" name="so_price" value="" width="200"> <br><br>
+Name:        <input type="text" name="s_name" value="" width="200"> <br><br>
+Description: <input type="text" name="s_description" value="" width="200"> <br><br>
+Price:       <input type="text" name="s_price" value="" width="200"> <br><br>
 <input type="submit" value="Submit">
     </pre>
 </form>
@@ -15,9 +15,13 @@ Price:       <input type="text" name="so_price" value="" width="200"> <br><br>
 
 <h1>Services Offered</h1>
 {% for i in data %}
-Service ID: <a href="{% url 'service_detail' pk=i.pk %}" >{{ i.id }}</a> <br>
+Service ID: {{ i.id }} <br>
 Service Name : {{ i.s_name }} <br>
 Service Price: {{ i.s_price }} <br>
-Service Description: {{ i.s_description }} <br><br>
+Service Description: {{ i.s_description }} <br>
+<pre>
+<a href="/service/{{i.id}}">Update</a> | <a href="/delete/{{i.id}}">Delete</a>
+</pre>
+<br>
 {% endfor %}
 {% endblock %}
