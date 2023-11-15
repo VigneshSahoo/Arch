@@ -57,7 +57,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'website/templates',
-            'registration/templates',
+            'CRUD/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

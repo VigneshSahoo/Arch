@@ -83,3 +83,8 @@ def login_page(request):
 
 def contact_us(request):
     return render(request, 'contact.html')
+
+
+def crud(request):
+    context = {}
+    return render(request, 'crud.html', context)

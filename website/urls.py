@@ -28,5 +28,6 @@ urlpatterns = [
     path('login/', views.login_page),
     path('contact/', views.contact_us),
     path('subscribe/', views.subscribe),
-    path('', include('registration.urls'))
+    path('crud/', views.crud),
+    path('', include('CRUD.urls'))
 ]
