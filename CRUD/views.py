@@ -7,7 +7,11 @@ from . import models
 
 # Create your views here.
 def create(request):
-    context = {}
+    # Method 2: calling the data from models file
+    data = models.Products.objects.all()
+    context = {
+        'data': data
+    }
     return render(request, 'create.html', context)
 
 
@@ -22,8 +26,6 @@ def delete(request):
 
 
 def read(request):
-    # Method 2: calling the data from models file
-    data = models.Products.objects.all()
     # Method 1: calling the products table directly from the models file
     products_data = Products.objects.all()
     context = {
