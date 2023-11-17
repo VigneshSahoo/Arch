@@ -28,6 +28,6 @@ urlpatterns = [
     path('login/', views.login_page),
     path('contact/', views.contact_us),
     path('subscribe/', views.subscribe),
-    path('crud/', views.crud),
+    path('crud/', views.crud, name='crud'),
     path('', include('CRUD.urls'))
 ]

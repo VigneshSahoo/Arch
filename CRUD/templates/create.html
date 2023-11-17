@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,5 +8,16 @@
 </head>
 <body>
 Create
+<hr>
+<form method="POST" action="">
+    {% csrf_token %}
+<pre>
+Name:        {{ form_html.name }}<br>
+Description: {{ form_html.description }}<br>
+Price:       {{ form_html.price }}<br>
+             <input type="submit" value="Create">
+</pre>
+</form>
 </body>
+{% endblock content %}
 </html>

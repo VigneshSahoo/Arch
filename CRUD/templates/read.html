@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+{% extends 'navbar.html' %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,5 +14,26 @@
 </head>
 <body>
 Read
+<hr>
+<table style="width:25%">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  {% for i in html_data %}
+  <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.name }}</td>
+    <td>{{ i.description }}</td>
+    <td>{{ i.price }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<!--{% for i in html_data %}-->
+<!--{{ i.name }}, {{ i.description }}, {{ i.price }}-->
+<!--{% endfor %}-->
 </body>
+{% endblock content %}
 </html>

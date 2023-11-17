@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # Method 1: Directly importing using the model name
 from .models import Products
 # Method 2: Importing via models file
@@ -8,9 +8,18 @@ from . import models
 # Create your views here.
 def create(request):
     # Method 2: calling the data from models file
-    data = models.Products.objects.all()
+    # Creating a new instance of product form
+    form = models.ProductsForm()
+    # Checking the data inside POST method
+    if request.method == 'POST':
+        # Assigning a variable to the data that comes in form
+        data = models.ProductsForm(request.POST)
+        if data.is_valid():
+            # if it is valid, save it to the database.
+            data.save()
+            return redirect('crud')
     context = {
-        'data': data
+        'form_html': form
     }
     return render(request, 'create.html', context)
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 
 # Create your models here.
@@ -14,3 +15,15 @@ class Products(models.Model):
 
     class Meta:
         db_table = 'products'
+
+
+class ProductsForm(ModelForm):
+
+    class Meta:
+        model = Products
+        fields = [
+            'name',
+            'description',
+            'price'
+        ]
+
