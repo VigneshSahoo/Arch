@@ -24,7 +24,7 @@ class Room(models.Model):
     a2 = models.IntegerField(blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    # objects = models.Manager()
+    objects = models.Manager()
 
 
 class User(models.Model):
@@ -33,7 +33,7 @@ class User(models.Model):
     u_name = models.CharField(max_length=100, blank=False, null=False)
     u_email = models.EmailField(blank=False, null=False)
     u_contact = models.CharField(max_length=15, null=False)
-    # objects = models.Manager()
+    objects = models.Manager()
 
     class Meta:
         db_table = "user"

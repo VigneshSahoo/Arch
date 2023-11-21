@@ -17,16 +17,17 @@ def create(request):
         if data.is_valid():
             # if it is valid, save it to the database.
             data.save()
-            return redirect('crud')
+            return redirect('read')
     context = {
         'form_html': form
     }
     return render(request, 'create.html', context)
 
 
-def update(request):
-    context = {}
-    return render(request, 'update.html', context)
+def update(request, pk):
+    data = Products.objects.get(pk=pk)
+    context = {'data': data}
+    return render(request, 'read.html', context)
 
 
 def delete(request):

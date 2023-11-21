@@ -21,6 +21,7 @@ Read
     <th>Name</th>
     <th>Description</th>
     <th>Price</th>
+    <th colspan="2" >Actions</th>
   </tr>
   {% for i in html_data %}
   <tr>
@@ -28,6 +29,8 @@ Read
     <td>{{ i.name }}</td>
     <td>{{ i.description }}</td>
     <td>{{ i.price }}</td>
+    <td><a href="/update/{{ i.id }}">Update</a></td>
+    <td><a href="/delete/{{ i.id }}">Delete</a></td>
   </tr>
   {% endfor %}
 </table>
