@@ -29,8 +29,8 @@ Read
     <td>{{ i.name }}</td>
     <td>{{ i.description }}</td>
     <td>{{ i.price }}</td>
-    <td><a href="/update/{{ i.id }}">Update</a></td>
-    <td><a href="/delete/{{ i.id }}">Delete</a></td>
+    <td><a href="/update/{{ i.pk }}">Update</a></td>
+    <td><a href="/delete/{{ i.pk }}">Delete</a></td>
   </tr>
   {% endfor %}
 </table>

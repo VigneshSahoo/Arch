@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 {% extends 'navbar.html' %}
 {% block content %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
-<body>
-Login page
-<hr>
+<body style="background-color: white">
+<h1>
+    Login
+</h1>
+<pre>
+    <form method="POST" action="">
+        {% csrf_token %}
+    <b>Username:</b> <input type="text" value="{{ data.username }}" name="username"><br>
+    <b>Password:</b> <input type="password" value="{{ data.password }}" name="password"><br>
+    <input style="font-size: 30px" type="submit" value="Login">
+    </form>
+    </pre>
 </body>
 {% endblock %}
 </html>

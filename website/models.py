@@ -1,5 +1,17 @@
 from django.db import models
 from django.forms import ModelForm
+from django.contrib import admin
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+
+class TotalUsers(UserCreationForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password2', 'password1', 'first_name', 'last_name']
 
 
 class Services(models.Model):
@@ -55,3 +67,16 @@ class SubscriptionForm(ModelForm):
             'sub_name',
             'sub_email',
         ]
+
+
+class RegisteredUsers(models.Model):
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    objects = models.Manager()
+
+
+class RegisteredUsersAdmin(admin.ModelAdmin):
+    list_display = ['username', 'password']
+
+
+admin.site.register(RegisteredUsers, RegisteredUsersAdmin)

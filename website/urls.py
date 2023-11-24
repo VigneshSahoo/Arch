@@ -25,9 +25,10 @@ urlpatterns = [
     path('services/', views.services_off, name='services'),
     path('service/<int:id>/', views.service_details, name='service_detail'),
     path('delete/<int:pk>/', views.delete_service, name='delete_service'),
-    path('login/', views.login_page),
+    path('login/', views.login_page, name='login_page'),
     path('contact/', views.contact_us),
     path('subscribe/', views.subscribe),
     path('crud/', views.crud, name='crud'),
-    path('', include('CRUD.urls'))
+    path('', include('CRUD.urls')),
+    path('register/', views.registration, name='reg')
 ]

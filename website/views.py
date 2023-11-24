@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . import models
-from django.forms import ModelForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 
 def index_page(request):
@@ -20,6 +21,7 @@ def about_us(request):
     return render(request, 'about.html', context)
 
 
+@login_required(login_url='login_page')
 def services_off(request):
     data = models.Services.objects.all()
     logic = {'data': data}
@@ -78,6 +80,15 @@ def subscribe(request):
 
 
 def login_page(request):
+    if request.method == 'POST':
+        print(request.POST)
+        user = authenticate(
+            username=request.POST.get('username'),
+            password=request.POST.get('password')
+            )
+        if user is not None:
+            login(request, user=user)
+            return redirect('services')
     return render(request, 'login_page.html')
 
 
@@ -88,3 +99,14 @@ def contact_us(request):
 def crud(request):
     context = {}
     return render(request, 'crud.html', context)
+
+
+def registration(request):
+    forms = models.TotalUsers()
+    if request.method == 'POST':
+        user = models.TotalUsers(request.POST)
+        if user.is_valid():
+            user.save()
+            return redirect('login_page')
+    context = {'form': forms}
+    return render(request, 'registration.html', context)

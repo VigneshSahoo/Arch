@@ -1,0 +1,18 @@
+h1 {
+    font-family: cursive;
+    background-color: tomato;
+    font-size: 50px;
+    text-align: center;
+    padding: 10px;
+}
+form {
+    font-size: 40px;
+    text-align: center;
+    padding: 10px
+}
+input {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 5px;
+  box-sizing: border-box;
+}

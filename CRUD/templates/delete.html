@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 {% extends 'navbar.html' %}
 {% block content %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Delete</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'css/styles.css' %}">-->
 </head>
 <body>
 Delete
+<hr>
+<h1>
+    This is the h1 tag. This should be in blue.
+</h1>
+<br>
+<p>
+    This should be in red.
+</p>
+<p>
+    Automated border.
+    <a href="/"><img src="{% static 'images/home_icon.png' %}" alt="Home" width="25px" height="25px"></a>
+</p>
 </body>
 {% endblock %}
 </html>

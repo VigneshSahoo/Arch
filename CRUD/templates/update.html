@@ -10,7 +10,12 @@
 Update
 <hr>
 <form action="/update/{{ data.pk }}" method="POST">
-
+    {% csrf_token %}
+    ID: <input type="text" value="{{ data.id }}" name="id"> <br>
+    Name: <input type="text" value="{{ data.name }}" name="name"> <br>
+    Description: <input type="text" value="{{ data.description }}" name="description"> <br>
+    Price: <input type="text" value="{{ data.price }}" name="price"> <br>
+    <input type="submit" value="Update">
 </form>
 </body>
 {% endblock content %}

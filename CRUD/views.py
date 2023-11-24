@@ -27,12 +27,23 @@ def create(request):
 def update(request, pk):
     data = Products.objects.get(pk=pk)
     context = {'data': data}
-    return render(request, 'read.html', context)
+    if request.method == "POST":
+        data.name = request.POST.get("name")
+        data.description = request.POST.get("description")
+        data.price = request.POST.get("price")
+        data.save()
+        return redirect('read')
+    return render(request, 'update.html', context)
 
 
-def delete(request):
-    context = {}
-    return render(request, 'delete.html', context)
+def delete(request, pk):
+    data = Products.objects.filter(pk=pk).first()
+    data.delete()
+    return redirect('read')
+
+
+def delete_css(request):
+    return render(request, 'delete.html')
 
 
 def read(request):
