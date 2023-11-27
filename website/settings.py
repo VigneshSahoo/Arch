@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'CRUD',
+    'landing',
+    "django_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,7 @@ TEMPLATES = [
         'DIRS': [
             'website/templates',
             'CRUD/templates',
+            'landing/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,9 +130,12 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'website/static'),
+    os.path.join(BASE_DIR, 'landing/static'),
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

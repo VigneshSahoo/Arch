@@ -29,6 +29,9 @@ urlpatterns = [
     path('contact/', views.contact_us),
     path('subscribe/', views.subscribe),
     path('crud/', views.crud, name='crud'),
+    path('register/', views.registration, name='reg'),
+
+    # Coming from another app
     path('', include('CRUD.urls')),
-    path('register/', views.registration, name='reg')
+    path('', include('landing.urls')),
 ]
