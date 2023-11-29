@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <style>
 .grid-container {
   display: grid;
@@ -22,10 +23,11 @@ div {
 
 <div class="grid-container">
 
-<div style="background-color:#FFF4A3;">
-  <h2>London</h2>
-  <p>London is the capital city of England.</p>
-  <p>London has over 13 million inhabitants.</p>
+<div style="background-image: url('{% static 'images/logo.png' %}');">
+  <h2>Contact</h2>
+  <p>Add1: Chennai</p>
+  <p>Add2: TamilNadu</p>
+  <p>Contact: 044 4258464482</p>
 </div>
 
 <div style="background-color:#FFC0C7;">
